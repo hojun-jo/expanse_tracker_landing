@@ -5,3 +5,21 @@ export function withBase(path = '') {
 
   return normalizedPath ? `${normalizedBase}${normalizedPath}` : normalizedBase;
 }
+
+export function resolveHref(href: string) {
+  if (!href || href === '/') {
+    return withBase();
+  }
+
+  if (
+    href.startsWith('#') ||
+    href.startsWith('http://') ||
+    href.startsWith('https://') ||
+    href.startsWith('mailto:') ||
+    href.startsWith('tel:')
+  ) {
+    return href;
+  }
+
+  return withBase(href);
+}

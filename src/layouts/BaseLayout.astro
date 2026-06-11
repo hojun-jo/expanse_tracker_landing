@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { withBase } from '../utils/paths';
+import { resolveHref, withBase } from '../utils/paths';
 
 interface NavLink {
   label: string;
@@ -12,6 +12,13 @@ interface FooterLink {
   href: string;
 }
 
+interface LocaleOption {
+  locale: string;
+  label: string;
+  href: string;
+  active: boolean;
+}
+
 interface Props {
   lang: string;
   title: string;
@@ -19,8 +26,7 @@ interface Props {
   homeHref: string;
   brandLine: string;
   navLinks: NavLink[];
-  switchHref: string;
-  switchLabel: string;
+  localeOptions: LocaleOption[];
   footerLinks: FooterLink[];
   footerNote: string;
 }
@@ -32,8 +38,7 @@ const {
   homeHref,
   brandLine,
   navLinks,
-  switchHref,
-  switchLabel,
+  localeOptions,
   footerLinks,
   footerNote,
 } = Astro.props;
@@ -41,6 +46,7 @@ const {
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
 const appIconHref = withBase('AppIcon-iOS-Default-1024x1024@1x.png');
 const ogImage = Astro.site ? new URL(appIconHref, Astro.site).toString() : undefined;
+const resolvedHomeHref = resolveHref(homeHref);
 ---
 
 <!doctype html>
@@ -66,7 +72,7 @@ const ogImage = Astro.site ? new URL(appIconHref, Astro.site).toString() : undef
       <div class="site-shell__glow site-shell__glow--gold"></div>
 
       <header class="site-header">
-        <a class="brand" href={homeHref}>
+        <a class="brand" href={resolvedHomeHref}>
           <img class="brand__icon" src={appIconHref} alt="" width="56" height="56" />
           <span class="brand__copy">
             <span class="brand__name">Pennymint</span>
@@ -77,11 +83,26 @@ const ogImage = Astro.site ? new URL(appIconHref, Astro.site).toString() : undef
         <div class="site-header__actions">
           <nav class="site-nav" aria-label="Primary">
             {navLinks.map((link) => (
-              <a href={link.href}>{link.label}</a>
+              <a href={resolveHref(link.href)}>{link.label}</a>
             ))}
           </nav>
 
-          <a class="language-switch" href={switchHref}>{switchLabel}</a>
+          <details class="language-menu">
+            <summary class="language-switch">
+              {localeOptions.find((option) => option.active)?.label}
+            </summary>
+
+            <div class="language-menu__panel">
+              {localeOptions.map((option) => (
+                <a
+                  class:list={['language-menu__link', option.active && 'language-menu__link--active']}
+                  href={resolveHref(option.href)}
+                >
+                  {option.label}
+                </a>
+              ))}
+            </div>
+          </details>
         </div>
       </header>
 
@@ -97,7 +118,7 @@ const ogImage = Astro.site ? new URL(appIconHref, Astro.site).toString() : undef
 
         <div class="site-footer__links">
           {footerLinks.map((link) => (
-            <a href={link.href}>{link.label}</a>
+            <a href={resolveHref(link.href)}>{link.label}</a>
           ))}
         </div>
       </footer>

@@ -1,0 +1,25 @@
+---
+import LandingPage from '../../components/LandingPage.astro';
+import { pages, secondaryLocales, type Locale } from '../../content/siteContent';
+
+export function getStaticPaths() {
+  return secondaryLocales
+    .filter((locale) => locale !== 'en')
+    .map((locale) => ({
+      params: { locale },
+      props: {
+        locale,
+        page: pages[locale],
+      },
+    }));
+}
+
+interface Props {
+  locale: Exclude<Locale, 'ko' | 'en'>;
+  page: (typeof pages)[Exclude<Locale, 'ko' | 'en'>];
+}
+
+const { locale, page } = Astro.props;
+---
+
+<LandingPage locale={locale} page={page} />

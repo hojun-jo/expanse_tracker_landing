@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureBlock from './FeatureBlock.astro';
+import HeroVisual from './HeroVisual.astro';
+import {
+  getLocaleHref,
+  getLocaleOptions,
+  localeInfo,
+  type Locale,
+  type PageContent,
+} from '../content/siteContent';
+import { withBase } from '../utils/paths';
+
+interface Props {
+  locale: Locale;
+  page: PageContent;
+}
+
+const { locale, page } = Astro.props;
+const heroScreens = [page.flow.screenshots[0], page.flow.screenshots[3]];
+const [leadFeature, ...secondaryFeatures] = page.features;
+const footerLinks = [
+  {
+    label: page.footer.privacyLabel,
+    href: localeInfo[locale].privacyHref,
+  },
+];
+---
+
+<BaseLayout
+  lang={localeInfo[locale].htmlLang}
+  title={page.metaTitle}
+  description={page.metaDescription}
+  homeHref={getLocaleHref(locale)}
+  brandLine={page.brandLine}
+  navLinks={[
+    { label: page.nav.features, href: '#features' },
+    { label: page.nav.flow, href: '#flow' },
+  ]}
+  localeOptions={getLocaleOptions(locale)}
+  footerLinks={footerLinks}
+  footerNote={`${page.footer.availability} ${page.footer.support}`}
+>
+  <section class="hero-section">
+    <div class="hero-copy">
+      <p class="eyebrow">{page.hero.eyebrow}</p>
+      <h1>{page.hero.title}</h1>
+      <p class="hero-copy__description">{page.hero.description}</p>
+
+      <div class="hero-copy__actions">
+        <span class="availability-pill">{page.hero.availability}</span>
+      </div>
+
+      <p class="hero-copy__note">{page.hero.availabilityNote}</p>
+
+      <ul class="highlight-list">
+        {page.hero.highlights.map((highlight) => <li>{highlight}</li>)}
+      </ul>
+    </div>
+
+    <HeroVisual primary={heroScreens[0]} secondary={heroScreens[1]} metrics={page.hero.metrics} />
+  </section>
+
+  <section class="features-section" id="features">
+    <div class="section-header features-section__header">
+      <p class="eyebrow">{page.sectionTitles.features}</p>
+      <h2>{page.sectionTitles.features}</h2>
+      <p>{page.featureIntro}</p>
+    </div>
+
+    <FeatureBlock feature={leadFeature} index={1} variant="lead" />
+
+    <div class="feature-grid">
+      {secondaryFeatures.map((feature, index) => (
+        <FeatureBlock feature={feature} index={index + 2} variant="compact" />
+      ))}
+    </div>
+  </section>
+
+  <section class="gallery-section" id="flow">
+    <div class="section-header section-header--compact">
+      <p class="eyebrow">{page.sectionTitles.flow}</p>
+      <h2>{page.flow.title}</h2>
+      <p>{page.flow.description}</p>
+    </div>
+
+    <div class="gallery-grid">
+      {page.flow.screenshots.map((shot) => (
+        <figure class="gallery-card">
+          <div class="gallery-card__frame">
+            <img src={withBase(shot.src)} alt={shot.alt} loading="lazy" decoding="async" />
+          </div>
+          <figcaption>{shot.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
