@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+import { withBase } from '../utils/paths';
+
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  lang: string;
+  title: string;
+  description: string;
+  homeHref: string;
+  brandLine: string;
+  navLinks: NavLink[];
+  switchHref: string;
+  switchLabel: string;
+  footerLinks: FooterLink[];
+  footerNote: string;
+}
+
+const {
+  lang,
+  title,
+  description,
+  homeHref,
+  brandLine,
+  navLinks,
+  switchHref,
+  switchLabel,
+  footerLinks,
+  footerNote,
+} = Astro.props;
+
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
+const appIconHref = withBase('AppIcon-iOS-Default-1024x1024@1x.png');
+const ogImage = Astro.site ? new URL(appIconHref, Astro.site).toString() : undefined;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#77f0c1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href={appIconHref} />
+    <link rel="apple-touch-icon" href={appIconHref} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="site-shell__glow site-shell__glow--mint"></div>
+      <div class="site-shell__glow site-shell__glow--gold"></div>
+
+      <header class="site-header">
+        <a class="brand" href={homeHref}>
+          <img class="brand__icon" src={appIconHref} alt="" width="56" height="56" />
+          <span class="brand__copy">
+            <span class="brand__name">Pennymint</span>
+            <span class="brand__line">{brandLine}</span>
+          </span>
+        </a>
+
+        <div class="site-header__actions">
+          <nav class="site-nav" aria-label="Primary">
+            {navLinks.map((link) => (
+              <a href={link.href}>{link.label}</a>
+            ))}
+          </nav>
+
+          <a class="language-switch" href={switchHref}>{switchLabel}</a>
+        </div>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <p class="site-footer__brand">Pennymint</p>
+          <p class="site-footer__note">{footerNote}</p>
+        </div>
+
+        <div class="site-footer__links">
+          {footerLinks.map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

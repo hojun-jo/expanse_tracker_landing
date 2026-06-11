@@ -1,0 +1,40 @@
+---
+import { withBase } from '../utils/paths';
+import type { Feature } from '../content/siteContent';
+
+interface Props {
+  feature: Feature;
+  index: number;
+  variant?: 'lead' | 'compact';
+}
+
+const { feature, index, variant = 'compact' } = Astro.props;
+const displayIndex = String(index).padStart(2, '0');
+---
+
+<article class:list={["feature-block", `feature-block--${variant}`]}>
+  <div class="feature-block__copy">
+    <div class="feature-block__meta">
+      <span class="feature-block__index">{displayIndex}</span>
+      <p class="eyebrow">{feature.eyebrow}</p>
+    </div>
+
+    <h3>{feature.title}</h3>
+    <p class="feature-block__description">{feature.description}</p>
+
+    <ul class="feature-block__bullets">
+      {feature.bullets.map((bullet) => <li>{bullet}</li>)}
+    </ul>
+  </div>
+
+  <figure class="device-shot">
+    <div class="device-shot__frame">
+      <img
+        src={withBase(feature.screenshot.src)}
+        alt={feature.screenshot.alt}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </figure>
+</article>
