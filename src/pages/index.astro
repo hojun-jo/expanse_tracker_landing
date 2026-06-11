@@ -19,13 +19,14 @@ const [leadFeature, ...secondaryFeatures] = page.features;
   navLinks={[
     { label: page.nav.features, href: '#features' },
     { label: page.nav.flow, href: '#flow' },
-    { label: page.nav.privacy, href: '#privacy' },
   ]}
   switchHref={withBase('en/')}
   switchLabel={page.nav.language}
   footerLinks={[
-    { label: page.hero.privacyCta, href: withBase('privacy/') },
-    { label: page.nav.language, href: withBase('en/') },
+    {
+      label: '개인정보 처리방침',
+      href: 'https://etialmoon.notion.site/37cd6b2371ba80529767e86a058e6cb0?source=copy_link',
+    },
   ]}
   footerNote={`${page.footer.availability} ${page.footer.support}`}
 >
@@ -37,7 +38,6 @@ const [leadFeature, ...secondaryFeatures] = page.features;
 
       <div class="hero-copy__actions">
         <span class="availability-pill">{page.hero.availability}</span>
-        <a class="text-link" href={withBase('privacy/')}>{page.hero.privacyCta}</a>
       </div>
 
       <p class="hero-copy__note">{page.hero.availabilityNote}</p>
@@ -82,21 +82,6 @@ const [leadFeature, ...secondaryFeatures] = page.features;
           <figcaption>{shot.caption}</figcaption>
         </figure>
       ))}
-    </div>
-  </section>
-
-  <section class="privacy-banner" id="privacy">
-    <div>
-      <p class="eyebrow">{page.sectionTitles.privacy}</p>
-      <h2>{page.privacyHighlight.title}</h2>
-      <p>{page.privacyHighlight.description}</p>
-    </div>
-
-    <div class="privacy-banner__content">
-      <ul class="privacy-points">
-        {page.privacyHighlight.points.map((point) => <li>{point}</li>)}
-      </ul>
-      <a class="button-link" href={withBase('privacy/')}>{page.privacyHighlight.policyCta}</a>
     </div>
   </section>
 </BaseLayout>

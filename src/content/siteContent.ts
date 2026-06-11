@@ -1,5 +1,7 @@
 export type Locale = 'ko' | 'en';
 
+export const supportEmail = 'etialmoon@gmail.com';
+
 export interface Metric {
   value: string;
   label: string;
@@ -28,7 +30,6 @@ export interface PageContent {
   nav: {
     features: string;
     flow: string;
-    privacy: string;
     language: string;
   };
   hero: {
@@ -37,14 +38,12 @@ export interface PageContent {
     description: string;
     availability: string;
     availabilityNote: string;
-    privacyCta: string;
     highlights: string[];
     metrics: Metric[];
   };
   sectionTitles: {
     features: string;
     flow: string;
-    privacy: string;
   };
   featureIntro: string;
   features: Feature[];
@@ -53,34 +52,10 @@ export interface PageContent {
     description: string;
     screenshots: Screenshot[];
   };
-  privacyHighlight: {
-    title: string;
-    description: string;
-    points: string[];
-    policyCta: string;
-  };
   footer: {
     availability: string;
     support: string;
   };
-}
-
-export interface PolicySection {
-  title: string;
-  body: string[];
-}
-
-export interface PolicyContent {
-  locale: Locale;
-  htmlLang: string;
-  metaTitle: string;
-  metaDescription: string;
-  title: string;
-  summary: string;
-  updatedAt: string;
-  homeLabel: string;
-  sections: PolicySection[];
-  contactNote: string;
 }
 
 function screenshots(prefix: 'kr' | 'us') {
@@ -104,7 +79,6 @@ export const pages: Record<Locale, PageContent> = {
     nav: {
       features: '기능',
       flow: '화면 흐름',
-      privacy: '개인정보',
       language: 'English',
     },
     hero: {
@@ -114,8 +88,7 @@ export const pages: Record<Locale, PageContent> = {
         'Pennymint는 복잡한 자산 관리 도구가 아니라, 매일 빠르게 지출을 기록하고 다시 돌아보기 쉬운 개인용 가계부입니다.',
       availability: 'App Store 출시 예정',
       availabilityNote:
-        '앱스토어 링크와 지원 연락처는 공개 준비가 끝나는 대로 이 페이지에 추가됩니다.',
-      privacyCta: '개인정보 처리방침 보기',
+        '앱스토어 링크는 공개 준비가 끝나는 대로 이 페이지에 추가됩니다.',
       highlights: ['빠른 지출 기록', '2뎁스 카테고리', '월간 달력 검토', '카테고리 분석 차트'],
       metrics: [
         {
@@ -135,7 +108,6 @@ export const pages: Record<Locale, PageContent> = {
     sectionTitles: {
       features: '핵심 기능',
       flow: '앱 흐름',
-      privacy: '개인정보 중심 설계',
     },
     featureIntro:
       '기록, 달력, 차트까지 이어지는 3개 탭 구조로 매일의 소비를 가볍게 남기고 다시 확인할 수 있습니다.',
@@ -232,20 +204,9 @@ export const pages: Record<Locale, PageContent> = {
         },
       ],
     },
-    privacyHighlight: {
-      title: '개인 기록은 가볍고 사적으로',
-      description:
-        '현재 제품 범위 기준으로 Pennymint는 로그인이나 클라우드 동기화 없이 개인 사용에 집중합니다.',
-      points: [
-        '계정 생성 없이 바로 시작하는 구조',
-        '현재 버전 기준 지출 기록은 기기 내 저장을 전제한 설계',
-        '정식 출시 전 개인정보 처리방침과 연락처를 계속 보완 예정',
-      ],
-      policyCta: '개인정보 처리방침 읽기',
-    },
     footer: {
       availability: 'App Store 링크는 출시 시점에 추가됩니다.',
-      support: '지원 연락처는 공개 전 업데이트됩니다.',
+      support: `지원 연락처: ${supportEmail}`,
     },
   },
   en: {
@@ -258,7 +219,6 @@ export const pages: Record<Locale, PageContent> = {
     nav: {
       features: 'Features',
       flow: 'Flow',
-      privacy: 'Privacy',
       language: '한국어',
     },
     hero: {
@@ -268,8 +228,7 @@ export const pages: Record<Locale, PageContent> = {
         'Pennymint is a personal expense tracker for people who want to log spending quickly and look back without dealing with heavyweight finance tools.',
       availability: 'Coming Soon to the App Store',
       availabilityNote:
-        'The App Store link and support contact will be added here before public release.',
-      privacyCta: 'Read the privacy policy',
+        'The App Store link will be added here before public release.',
       highlights: ['Fast expense entry', 'Two-level categories', 'Monthly calendar review', 'Category analytics'],
       metrics: [
         {
@@ -289,7 +248,6 @@ export const pages: Record<Locale, PageContent> = {
     sectionTitles: {
       features: 'Core features',
       flow: 'Product flow',
-      privacy: 'Privacy-first by scope',
     },
     featureIntro:
       'Three focused tabs guide you from entry to review so the app stays lightweight enough for everyday use.',
@@ -386,125 +344,9 @@ export const pages: Record<Locale, PageContent> = {
         },
       ],
     },
-    privacyHighlight: {
-      title: 'Private by design, lightweight by default',
-      description:
-        'Based on the current product scope, Pennymint focuses on personal use without requiring an account or cloud sync.',
-      points: [
-        'Start without account creation',
-        'The current version is designed around on-device expense records',
-        'Policy details and contact information will be finalized before release',
-      ],
-      policyCta: 'Read privacy policy',
-    },
     footer: {
       availability: 'The App Store link will be added at launch.',
-      support: 'Support contact details will be added before release.',
+      support: `Support: ${supportEmail}`,
     },
-  },
-};
-
-export const policies: Record<Locale, PolicyContent> = {
-  ko: {
-    locale: 'ko',
-    htmlLang: 'ko-KR',
-    metaTitle: 'Pennymint | 개인정보 처리방침',
-    metaDescription: 'Pennymint 앱의 현재 제품 범위를 기준으로 정리한 개인정보 처리방침입니다.',
-    title: '개인정보 처리방침',
-    summary:
-      'Pennymint는 개인 지출 기록을 빠르게 남기고 다시 확인하기 위한 앱입니다. 아래 내용은 현재 제품 범위를 기준으로 작성되었으며, 정식 출시 전 업데이트될 수 있습니다.',
-    updatedAt: '최종 업데이트: 2026-06-11',
-    homeLabel: '홈으로 돌아가기',
-    sections: [
-      {
-        title: '1. 어떤 정보를 다루나요?',
-        body: [
-          '현재 제품 범위 기준으로 Pennymint는 회원가입을 요구하지 않습니다.',
-          '사용자가 입력한 지출 기록, 카테고리 구성, 앱 내 설정은 개인 사용을 위한 앱 기능 제공 목적에서 다뤄집니다.',
-          '현재 버전은 지출 기록을 기기 내에 저장하는 방향을 전제로 설계되어 있습니다.',
-        ],
-      },
-      {
-        title: '2. 정보는 어떤 목적으로 사용되나요?',
-        body: [
-          '지출 기록 저장, 카테고리 정리, 월간 달력 검토, 카테고리 분석 차트 제공을 위해 사용됩니다.',
-          '사용자가 직접 입력한 기록을 다시 불러오고 수정할 수 있도록 유지하는 데 사용됩니다.',
-        ],
-      },
-      {
-        title: '3. 외부로 전송하거나 공유하나요?',
-        body: [
-          '현재 제품 범위 기준으로 Pennymint는 로그인이나 클라우드 동기화를 전제로 하지 않습니다.',
-          '입력한 지출 기록을 판매하거나 제3자 마케팅 목적으로 공유하지 않는 방향을 기준으로 준비 중입니다.',
-          '향후 온라인 기능이나 외부 서비스가 추가되면 이 문서에 반영합니다.',
-        ],
-      },
-      {
-        title: '4. 사용자는 어떤 선택을 할 수 있나요?',
-        body: [
-          '앱에서 직접 기록을 수정하거나 삭제할 수 있습니다.',
-          '기기에서 앱을 제거하면 기기 내 로컬 데이터도 함께 제거될 수 있습니다.',
-        ],
-      },
-      {
-        title: '5. 문의 안내',
-        body: [
-          '지원 이메일과 정식 문의 채널은 앱 공개 전에 추가될 예정입니다.',
-          '연락처 정보가 준비되면 이 페이지와 스토어 정보에 함께 업데이트합니다.',
-        ],
-      },
-    ],
-    contactNote: '정식 출시 전 연락처와 정책 문구를 최종 확정할 예정입니다.',
-  },
-  en: {
-    locale: 'en',
-    htmlLang: 'en-US',
-    metaTitle: 'Pennymint | Privacy Policy',
-    metaDescription: 'Privacy policy for Pennymint based on the current product scope.',
-    title: 'Privacy Policy',
-    summary:
-      'Pennymint is an app for quickly recording personal expenses and reviewing them later. This policy reflects the current product scope and may be updated before public release.',
-    updatedAt: 'Last updated: 2026-06-11',
-    homeLabel: 'Back to home',
-    sections: [
-      {
-        title: '1. What information does Pennymint handle?',
-        body: [
-          'Based on the current product scope, Pennymint does not require account creation.',
-          'Expense records, category setups, and app preferences entered by the user are handled to provide the core app experience.',
-          'The current version is designed around keeping expense records on the device.',
-        ],
-      },
-      {
-        title: '2. Why is the information used?',
-        body: [
-          'It is used to save expense records, organize categories, power monthly calendar review, and generate category analytics.',
-          'It is also used to let users revisit and edit records they entered earlier.',
-        ],
-      },
-      {
-        title: '3. Is information sent elsewhere or shared?',
-        body: [
-          'Based on the current scope, Pennymint does not depend on login or cloud synchronization.',
-          'Expense records are not intended to be sold or shared for third-party marketing purposes.',
-          'If future updates introduce online features or outside services, this policy will be updated accordingly.',
-        ],
-      },
-      {
-        title: '4. What choices do users have?',
-        body: [
-          'Users can edit or delete records inside the app.',
-          'Removing the app from the device may also remove locally stored data on that device.',
-        ],
-      },
-      {
-        title: '5. Contact information',
-        body: [
-          'A support email address and official contact channel will be added before release.',
-          'Once finalized, the contact details will be updated on this page and in store listings.',
-        ],
-      },
-    ],
-    contactNote: 'Contact details and final policy wording will be finalized before launch.',
   },
 };
