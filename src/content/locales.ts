@@ -435,7 +435,7 @@ export const pages: Record<Locale, PageContent> = {
   ja: {
     metaTitle: 'Pennymint | シンプルな支出記録',
     metaDescription:
-      'すばやい記録、カスタムカテゴリ、月次カレンダーの振り返り、シンプルなチャート分析に対応した個人向け支出記録アプリ。',
+      'すばやく記録し、自分のカテゴリで整理し、カレンダーとグラフで振り返れる個人向け支出記録アプリ。',
     brandLine: 'シンプルな支出記録',
     nav: {
       features: '機能',
@@ -445,14 +445,14 @@ export const pages: Record<Locale, PageContent> = {
       eyebrow: 'Pennymint',
       title: '小さな記録が、よりよい支出につながります。',
       description:
-        'Pennymintは、複雑な資産管理ツールではなく、毎日の支出をすばやく記録してあとから見返しやすい個人向け家計簿アプリです。',
+        'Pennymintは複雑な資産管理ツールではなく、毎日の支出をすばやく記録し、あとから気軽に見返せる個人向け家計簿アプリです。',
       availability: 'App Storeで近日公開',
       availabilityNote: 'App Storeリンクは公開準備が整い次第、このページに追加されます。',
-      highlights: ['すばやい支出記録', '2階層カテゴリ', '月次カレンダー確認', 'カテゴリ分析チャート'],
+      highlights: ['すばやい記録', '2階層カテゴリ', '月間カレンダー確認', 'カテゴリ分析'],
       metrics: [
         {
           value: '10秒',
-          label: '毎日の入力をすばやく終えられる記録フロー',
+          label: '毎日の支出をすばやく残せる入力フロー',
         },
         {
           value: '2階層',
@@ -460,7 +460,7 @@ export const pages: Record<Locale, PageContent> = {
         },
         {
           value: '端末内',
-          label: '個人の記録を自分の端末内に保持',
+          label: '個人の記録を自分の端末内に保存',
         },
       ],
     },
@@ -469,32 +469,32 @@ export const pages: Record<Locale, PageContent> = {
       flow: 'アプリの流れ',
     },
     featureIntro:
-      '記録、カレンダー、チャートへとつながる3つのタブで、日々の支出を気軽に残して振り返れます。',
+      '記録、カレンダー、グラフの3つのタブで、毎日の支出を気軽に残して振り返れます。',
     features: [
       {
         eyebrow: 'クイック入力',
-        title: '今日使ったお金をすぐ残す',
+        title: '今日使ったお金をすぐ記録する',
         description:
-          '金額、メモ、カテゴリを選ぶだけで記録が完了します。複雑な設定なしで、一日の中で何度でも自然に使えます。',
+          '金額、メモ、カテゴリを選ぶだけで記録が完了します。複雑な設定なしで、一日の中で何度でも気軽に使えます。',
         bullets: [
           '短い入力ステップで片手操作にもなじむ',
-          '記録そのものに集中できるシンプルな画面構成',
-          '毎日何度使っても負担が少ない個人向け家計簿',
+          '記録に集中しやすいシンプルな画面構成',
+          '毎日何度使っても負担になりにくい',
         ],
         screenshot: {
           src: jaShots[0].src,
           alt: 'Pennymintのすばやい支出記録画面',
-          caption: 'すばやい支出記録',
+          caption: 'すばやい記録',
         },
       },
       {
         eyebrow: 'カテゴリ',
         title: '自分に合った分類で整理する',
         description:
-          '基本カテゴリからすぐ始められ、必要に応じて親子2階層の構造で自由にカスタマイズできます。',
+          '基本カテゴリですぐ始められ、必要に応じて親子2階層の構造で自由にカスタマイズできます。',
         bullets: [
           '名前、色、アイコンを自分の使い方に合わせて調整',
-          '深くなりすぎない2階層で探しやすさを維持',
+          '深くなりすぎない2階層で探しやすさを保つ',
           '繰り返す支出パターンをより分かりやすく整理',
         ],
         screenshot: {
@@ -504,24 +504,24 @@ export const pages: Record<Locale, PageContent> = {
         },
       },
       {
-        eyebrow: 'カレンダー確認',
+        eyebrow: 'カレンダー',
         title: '月の記録をまとめて見返す',
         description:
-          'カレンダーを中心に、どの日にどれくらい使ったかをすばやく確認でき、過去の記録もすぐ開き直せます。',
+          'カレンダーを中心に、どの日にどれくらい使ったかをすばやく確認でき、過去の記録も簡単に開き直せます。',
         bullets: [
           '月全体の流れが分かるカレンダー中心の確認画面',
           '記録した日と空いている日のパターンを把握',
-          '過去の支出をあとから見つけて確認しやすい構造',
+          '過去の支出をあとから見つけて確認しやすい',
         ],
         screenshot: {
           src: jaShots[2].src,
           alt: 'Pennymintの月間カレンダー画面',
-          caption: '月間カレンダー確認',
+          caption: '月間カレンダー',
         },
       },
       {
         eyebrow: '分析',
-        title: 'チャートで支出の傾向を理解する',
+        title: 'チャートで支出の傾向を把握する',
         description:
           'カテゴリごとの支出を視覚的に確認し、どこにお金が多く使われているかをすばやく把握できます。',
         bullets: [
@@ -537,9 +537,9 @@ export const pages: Record<Locale, PageContent> = {
       },
     ],
     flow: {
-      title: '記録から理解まで自然につながる流れ',
+      title: '記録から振り返りまで自然につながる流れ',
       description:
-        'すばやく記録し、カテゴリで整理し、月単位で振り返り、チャートで支出パターンを理解できる流れをひとつのアプリにまとめました。',
+        'すばやく記録し、カテゴリで整理し、月全体を振り返り、グラフで支出パターンをつかむ流れをひとつのアプリにまとめました。',
       screenshots: [
         {
           src: jaShots[0].src,
@@ -554,12 +554,12 @@ export const pages: Record<Locale, PageContent> = {
         {
           src: jaShots[2].src,
           alt: 'Pennymintのカレンダー画面',
-          caption: '3. 確認',
+          caption: '3. 振り返り',
         },
         {
           src: jaShots[3].src,
           alt: 'Pennymintの分析画面',
-          caption: '4. 理解',
+          caption: '4. 分析',
         },
       ],
     },
@@ -571,20 +571,20 @@ export const pages: Record<Locale, PageContent> = {
   },
   'zh-cn': {
     metaTitle: 'Pennymint | 简单记账应用',
-    metaDescription: '一款适合个人使用的支出记录应用，支持快速记账、自定义分类、月历回顾和简洁图表分析。',
+    metaDescription: '一款适合个人使用的支出记录应用，支持快速记账、自定义分类、月度日历回顾和简洁图表分析。',
     brandLine: '简单记账应用',
     nav: {
       features: '功能',
-      flow: '使用流程',
+      flow: '应用流程',
     },
     hero: {
       eyebrow: 'Pennymint',
-      title: '小小的记录，帮助你做出更好的消费选择。',
+      title: '小小记录，让每一笔支出更清楚。',
       description:
-        'Pennymint 不是复杂的资产管理工具，而是一款帮助你快速记录日常支出并轻松回顾的个人记账应用。',
+        'Pennymint 不是复杂的资产管理工具，而是一款帮助你快速记录日常支出、之后也能轻松回看的个人记账应用。',
       availability: '即将登陆 App Store',
       availabilityNote: 'App Store 链接将在发布准备完成后添加到此页面。',
-      highlights: ['快速记账', '两级分类', '月历回顾', '分类图表分析'],
+      highlights: ['快速记账', '两级分类', '月度日历回顾', '分类图表分析'],
       metrics: [
         {
           value: '10秒',
@@ -595,17 +595,17 @@ export const pages: Record<Locale, PageContent> = {
           label: '用父级和子级整理的自定义分类结构',
         },
         {
-          value: '本地',
-          label: '个人记录默认保留在你的设备中',
+          value: '设备内',
+          label: '个人记录默认保留在你的设备里',
         },
       ],
     },
     sectionTitles: {
       features: '核心功能',
-      flow: '产品流程',
+      flow: '应用流程',
     },
     featureIntro:
-      '通过记录、日历和图表三个重点标签页，把日常支出轻松记下并随时回顾。',
+      '通过记录、日历和图表三个核心标签页，把每天的支出轻松记下并随时回看。',
     features: [
       {
         eyebrow: '快速记录',
@@ -641,7 +641,7 @@ export const pages: Record<Locale, PageContent> = {
       },
       {
         eyebrow: '日历回顾',
-        title: '在一个月历视图中回看整月记录',
+        title: '在月度日历里回看整月记录',
         description:
           '通过日历视图，你可以快速查看某一天花了多少，也能轻松重新打开过去的记录。',
         bullets: [
@@ -652,7 +652,7 @@ export const pages: Record<Locale, PageContent> = {
         screenshot: {
           src: zhCnShots[2].src,
           alt: 'Pennymint 月历记录界面',
-          caption: '月历回顾',
+          caption: '月度日历回顾',
         },
       },
       {
@@ -675,7 +675,7 @@ export const pages: Record<Locale, PageContent> = {
     flow: {
       title: '从记录到理解的自然流程',
       description:
-        '快速记录、按分类整理、通过月历回顾，再用图表看清消费模式，整个过程都在一个应用里完成。',
+        '快速记录、按分类整理、通过日历回顾，再用图表看清消费模式，整个过程都在同一个应用里完成。',
       screenshots: [
         {
           src: zhCnShots[0].src,
@@ -716,9 +716,9 @@ export const pages: Record<Locale, PageContent> = {
     },
     hero: {
       eyebrow: 'Pennymint',
-      title: 'De petites notes mènent à de meilleures décisions de dépense.',
+      title: 'Un suivi simple pour mieux dépenser.',
       description:
-        'Pennymint n’est pas un outil financier complexe. C’est une application personnelle pour enregistrer rapidement vos dépenses quotidiennes et les revoir facilement plus tard.',
+        'Pennymint n’est pas un outil financier complexe, mais une application personnelle pour enregistrer rapidement vos dépenses quotidiennes et les revoir facilement plus tard.',
       availability: 'Bientôt sur l’App Store',
       availabilityNote: 'Le lien App Store sera ajouté ici dès que la sortie sera prête.',
       highlights: ['Saisie rapide', 'Catégories à deux niveaux', 'Revue mensuelle', 'Graphiques par catégorie'],
@@ -810,9 +810,9 @@ export const pages: Record<Locale, PageContent> = {
       },
     ],
     flow: {
-      title: 'Un parcours simple de la saisie à la compréhension',
+      title: 'Un parcours simple, de la saisie à la compréhension',
       description:
-        'Enregistrez vite, organisez avec les catégories, relisez le mois dans le calendrier et utilisez les graphiques pour comprendre la tendance.',
+        'Enregistrez vite, organisez avec les catégories, relisez le mois dans le calendrier et utilisez les graphiques pour mieux lire vos habitudes.',
       screenshots: [
         {
           src: frShots[0].src,
@@ -849,11 +849,11 @@ export const pages: Record<Locale, PageContent> = {
     brandLine: 'Registro de gastos simple',
     nav: {
       features: 'Funciones',
-      flow: 'Recorrido',
+      flow: 'Flujo',
     },
     hero: {
       eyebrow: 'Pennymint',
-      title: 'Los pequeños registros ayudan a tomar mejores decisiones de gasto.',
+      title: 'Pequeños registros para gastar mejor cada día.',
       description:
         'Pennymint no es una herramienta financiera compleja. Es una app personal para anotar gastos diarios con rapidez y revisarlos con facilidad más tarde.',
       availability: 'Próximamente en App Store',
@@ -876,20 +876,20 @@ export const pages: Record<Locale, PageContent> = {
     },
     sectionTitles: {
       features: 'Funciones clave',
-      flow: 'Flujo del producto',
+      flow: 'Flujo de la app',
     },
     featureIntro:
       'Tres pestañas conectan el registro, el calendario y los gráficos para que el seguimiento siga siendo ligero cada día.',
     features: [
       {
         eyebrow: 'Registro rápido',
-        title: 'Guarda enseguida lo que acabas de gastar',
+        title: 'Guarda al momento lo que acabas de gastar',
         description:
-          'Monto, nota y categoría bastan para registrar un gasto. Puedes usarlo varias veces al día sin configuraciones complicadas.',
+          'Importe, nota y categoría bastan para registrar un gasto. Puedes usar la app varias veces al día sin configuraciones complicadas.',
         bullets: [
           'Un flujo corto pensado para registrar con una sola mano',
           'Una pantalla simple que mantiene el foco en el registro',
-          'Lo bastante ligero como para usarlo varias veces al día',
+          'Lo bastante ligera como para usarla varias veces al día',
         ],
         screenshot: {
           src: esShots[0].src,
@@ -901,7 +901,7 @@ export const pages: Record<Locale, PageContent> = {
         eyebrow: 'Categorías',
         title: 'Organiza tus gastos con tu propia estructura',
         description:
-          'Empieza con un conjunto predeterminado y, cuando lo necesites, adapta tus categorías con una estructura padre-hijo de dos niveles.',
+          'Empieza con un conjunto inicial y, cuando lo necesites, adapta tus categorías con una estructura padre-hijo de dos niveles.',
         bullets: [
           'Nombres, colores e iconos ajustados a tu forma de uso',
           'Una jerarquía clara de dos niveles y navegación rápida',
@@ -949,7 +949,7 @@ export const pages: Record<Locale, PageContent> = {
     flow: {
       title: 'Un recorrido simple desde el registro hasta la comprensión',
       description:
-        'Registra rápido, organiza con categorías, revisa el mes y usa gráficos para entender el patrón detrás de los números.',
+        'Registra rápido, organiza con categorías, revisa el mes y usa gráficos para entender mejor tus hábitos de gasto.',
       screenshots: [
         {
           src: esShots[0].src,
@@ -990,9 +990,9 @@ export const pages: Record<Locale, PageContent> = {
     },
     hero: {
       eyebrow: 'Pennymint',
-      title: 'Kleine Einträge führen zu besseren Ausgabenentscheidungen.',
+      title: 'Kleine Einträge helfen dir, besser auszugeben.',
       description:
-        'Pennymint ist kein komplexes Finanzwerkzeug, sondern eine persönliche App, mit der du tägliche Ausgaben schnell festhältst und später leicht wieder ansehen kannst.',
+        'Pennymint ist kein komplexes Finanzwerkzeug, sondern eine persönliche App, mit der du Ausgaben im Alltag schnell festhältst und später leicht wieder ansiehst.',
       availability: 'Bald im App Store',
       availabilityNote: 'Der App Store-Link wird hier ergänzt, sobald die Veröffentlichung bereit ist.',
       highlights: ['Schnelle Erfassung', 'Kategorien auf zwei Ebenen', 'Monatsrückblick', 'Kategorie-Diagramme'],
@@ -1074,7 +1074,7 @@ export const pages: Record<Locale, PageContent> = {
         bullets: [
           'Gut lesbare Diagramme für schnelle Rückblicke',
           'Genug Einsicht ohne schwere Budgetfunktionen',
-          'Ein leichtes Fazit für bessere Alltagsentscheidungen',
+          'Eine kompakte Übersicht für bessere Entscheidungen im Alltag',
         ],
         screenshot: {
           src: deShots[3].src,
@@ -1084,9 +1084,9 @@ export const pages: Record<Locale, PageContent> = {
       },
     ],
     flow: {
-      title: 'Ein einfacher Weg von der Erfassung zur Einsicht',
+      title: 'Ein klarer Weg vom Erfassen zum Verstehen',
       description:
-        'Schnell erfassen, mit Kategorien ordnen, den Monat prüfen und mit Diagrammen verstehen, was hinter den Zahlen steckt.',
+        'Schnell erfassen, mit Kategorien ordnen, den Monat prüfen und mit Diagrammen deine Ausgaben besser verstehen.',
       screenshots: [
         {
           src: deShots[0].src,
@@ -1127,24 +1127,24 @@ export const pages: Record<Locale, PageContent> = {
     },
     hero: {
       eyebrow: 'Pennymint',
-      title: 'Pequenos registros ajudam voce a gastar melhor.',
+      title: 'Pequenos registros ajudam você a entender melhor seus gastos.',
       description:
-        'Pennymint nao e uma ferramenta financeira pesada. E um app pessoal para registrar gastos do dia a dia com rapidez e revisar tudo depois com facilidade.',
+        'Pennymint não é uma ferramenta financeira pesada. É um app pessoal para registrar gastos do dia a dia com rapidez e revisar tudo depois com facilidade.',
       availability: 'Em breve na App Store',
-      availabilityNote: 'O link da App Store sera adicionado a esta pagina assim que o lancamento estiver pronto.',
-      highlights: ['Registro rapido', 'Categorias em dois niveis', 'Revisao mensal', 'Graficos por categoria'],
+      availabilityNote: 'O link da App Store será adicionado a esta página assim que o lançamento estiver pronto.',
+      highlights: ['Registro rápido', 'Categorias em dois níveis', 'Revisão mensal', 'Gráficos por categoria'],
       metrics: [
         {
           value: '10 s',
-          label: 'Um fluxo leve pensado para registros diarios',
+          label: 'Um fluxo leve pensado para registros diários',
         },
         {
-          value: '2 niveis',
-          label: 'Categorias pai e filho sem profundidade desnecessaria',
+          value: '2 níveis',
+          label: 'Categorias pai e filho sem profundidade desnecessária',
         },
         {
           value: 'No dispositivo',
-          label: 'Seus registros pessoais ficam no proprio aparelho',
+          label: 'Seus registros pessoais ficam no próprio aparelho',
         },
       ],
     },
@@ -1153,33 +1153,33 @@ export const pages: Record<Locale, PageContent> = {
       flow: 'Fluxo do produto',
     },
     featureIntro:
-      'Tres abas conectam registro, calendario e graficos para manter o acompanhamento leve no uso diario.',
+      'Três abas conectam registro, calendário e gráficos para manter o acompanhamento leve no uso diário.',
     features: [
       {
-        eyebrow: 'Registro rapido',
-        title: 'Guarde na hora o que voce acabou de gastar',
+        eyebrow: 'Registro rápido',
+        title: 'Guarde na hora o que você acabou de gastar',
         description:
-          'Valor, observacao e categoria bastam para registrar um gasto. Assim fica natural usar o app varias vezes ao longo do dia.',
+          'Valor, observação e categoria bastam para registrar um gasto. Assim fica natural usar o app várias vezes ao longo do dia.',
         bullets: [
-          'Fluxo curto pensado para registrar com uma mao',
+          'Fluxo curto pensado para registrar com uma mão',
           'Tela simples que deixa o foco no registro em si',
-          'Leve o bastante para usar varias vezes por dia',
+          'Leve o bastante para usar várias vezes por dia',
         ],
         screenshot: {
           src: ptBrShots[0].src,
-          alt: 'Tela de registro rapido do Pennymint',
-          caption: 'Registro rapido',
+          alt: 'Tela de registro rápido do Pennymint',
+          caption: 'Registro rápido',
         },
       },
       {
         eyebrow: 'Categorias',
-        title: 'Organize seus gastos com a sua propria estrutura',
+        title: 'Organize seus gastos com a sua própria estrutura',
         description:
-          'Comece com categorias padrao e ajuste tudo quando precisar com uma estrutura de dois niveis, facil de navegar.',
+          'Comece com categorias padrão e ajuste tudo quando precisar com uma estrutura de dois níveis, fácil de navegar.',
         bullets: [
-          'Nomes, cores e icones ajustados ao seu jeito de usar',
-          'Hierarquia clara em dois niveis sem excesso de profundidade',
-          'Uma visao mais limpa dos gastos que se repetem',
+          'Nomes, cores e ícones ajustados ao seu jeito de usar',
+          'Hierarquia clara em dois níveis sem excesso de profundidade',
+          'Uma visão mais limpa dos gastos que se repetem',
         ],
         screenshot: {
           src: ptBrShots[1].src,
@@ -1188,42 +1188,42 @@ export const pages: Record<Locale, PageContent> = {
         },
       },
       {
-        eyebrow: 'Calendario',
-        title: 'Revise o mes inteiro de uma vez',
+        eyebrow: 'Calendário',
+        title: 'Revise o mês inteiro de uma vez',
         description:
-          'A visao de calendario mostra rapidamente quanto foi gasto em cada dia e facilita abrir registros antigos de novo.',
+          'A visão de calendário mostra rapidamente quanto foi gasto em cada dia e facilita abrir registros antigos de novo.',
         bullets: [
-          'Revisao mensal centrada no calendario',
+          'Revisão mensal centrada no calendário',
           'Leitura clara de dias com atividade e dias vazios',
-          'Acesso rapido aos gastos anteriores quando necessario',
+          'Acesso rápido aos gastos anteriores quando necessário',
         ],
         screenshot: {
           src: ptBrShots[2].src,
-          alt: 'Tela de calendario mensal do Pennymint',
-          caption: 'Revisao mensal',
+          alt: 'Tela de calendário mensal do Pennymint',
+          caption: 'Revisão mensal',
         },
       },
       {
-        eyebrow: 'Analises',
-        title: 'Entenda seus padroes de gasto com graficos',
+        eyebrow: 'Análises',
+        title: 'Entenda seus padrões de gasto com gráficos',
         description:
-          'Os graficos por categoria mostram para onde o dinheiro esta indo sem transformar o app em um painel financeiro pesado.',
+          'Os gráficos por categoria mostram para onde o dinheiro está indo sem transformar o app em um painel financeiro pesado.',
         bullets: [
-          'Graficos simples para leitura e reflexao rapida',
-          'Informacao suficiente sem recursos complexos de orcamento',
-          'Um resumo leve para entender melhor os seus habitos',
+          'Gráficos simples para leitura e reflexão rápida',
+          'Informação suficiente sem recursos complexos de orçamento',
+          'Um resumo leve para entender melhor os seus hábitos',
         ],
         screenshot: {
           src: ptBrShots[3].src,
-          alt: 'Tela de analises do Pennymint',
-          caption: 'Analises por categoria',
+          alt: 'Tela de análises do Pennymint',
+          caption: 'Análises por categoria',
         },
       },
     ],
     flow: {
       title: 'Um caminho simples do registro ao entendimento',
       description:
-        'Registre rapido, organize com categorias, revise o mes e use graficos para entender o que esta por tras dos numeros.',
+        'Registre rápido, organize com categorias, revise o mês e use gráficos para entender melhor seus hábitos de gasto.',
       screenshots: [
         {
           src: ptBrShots[0].src,
@@ -1237,20 +1237,20 @@ export const pages: Record<Locale, PageContent> = {
         },
         {
           src: ptBrShots[2].src,
-          alt: 'Tela de calendario do Pennymint',
+          alt: 'Tela de calendário do Pennymint',
           caption: '3. Revisar',
         },
         {
           src: ptBrShots[3].src,
-          alt: 'Tela de graficos do Pennymint',
+          alt: 'Tela de gráficos do Pennymint',
           caption: '4. Entender',
         },
       ],
     },
     footer: {
-      availability: 'O link da App Store sera adicionado no lancamento.',
+      availability: 'O link da App Store será adicionado no lançamento.',
       support: `Contato: ${supportEmail}`,
-      privacyLabel: 'Politica de Privacidade',
+      privacyLabel: 'Política de Privacidade',
     },
   },
 };
