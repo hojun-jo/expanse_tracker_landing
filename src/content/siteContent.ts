@@ -83,7 +83,7 @@ export const pages: Record<Locale, PageContent> = {
     },
     hero: {
       eyebrow: 'Pennymint',
-      title: '작은 기록이, 좋은 소비를 만듭니다.',
+      title: '작은 기록이,\n좋은\n소비를 만듭니다.',
       description:
         'Pennymint는 복잡한 자산 관리 도구가 아니라, 매일 빠르게 지출을 기록하고 다시 돌아보기 쉬운 개인용 가계부입니다.',
       availability: 'App Store 출시 예정',

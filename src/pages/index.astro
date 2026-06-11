@@ -8,6 +8,7 @@ import { withBase } from '../utils/paths';
 const page = pages.ko;
 const heroScreens = [page.flow.screenshots[0], page.flow.screenshots[3]];
 const [leadFeature, ...secondaryFeatures] = page.features;
+const heroTitleLines = page.hero.title.split('\n');
 ---
 
 <BaseLayout
@@ -33,7 +34,14 @@ const [leadFeature, ...secondaryFeatures] = page.features;
   <section class="hero-section">
     <div class="hero-copy">
       <p class="eyebrow">{page.hero.eyebrow}</p>
-      <h1>{page.hero.title}</h1>
+      <h1>
+        {heroTitleLines.map((line, index) => (
+          <>
+            <span>{line}</span>
+            {index < heroTitleLines.length - 1 && <br />}
+          </>
+        ))}
+      </h1>
       <p class="hero-copy__description">{page.hero.description}</p>
 
       <div class="hero-copy__actions">
