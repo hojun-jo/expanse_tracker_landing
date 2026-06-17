@@ -5,9 +5,23 @@ type ScreenshotPrefix = 'kr' | 'us' | 'jp' | 'cn' | 'fr' | 'es' | 'de' | 'br';
 export const supportEmail = 'etialmoon@gmail.com';
 
 const koreanPrivacyHref =
-  'https://etialmoon.notion.site/37cd6b2371ba80529767e86a058e6cb0?source=copy_link';
+  'https://app.notion.com/p/etialmoon/37cd6b2371ba80529767e86a058e6cb0?source=copy_link';
 const englishPrivacyHref =
-  'https://etialmoon.notion.site/Privacy-Policy-37cd6b2371ba8020830dfeae95325b87?source=copy_link';
+  'https://app.notion.com/p/etialmoon/Privacy-Policy-37cd6b2371ba8020830dfeae95325b87?source=copy_link';
+const germanPrivacyHref =
+  'https://app.notion.com/p/etialmoon/Privacy-Policy-de-DE-37cd6b2371ba80bab360d789f9ea1e00?source=copy_link';
+const spanishPrivacyHref =
+  'https://app.notion.com/p/etialmoon/Privacy-Policy-es-ES-37cd6b2371ba80fc8362d0ece6e2be2b?source=copy_link';
+const frenchPrivacyHref =
+  'https://app.notion.com/p/etialmoon/Privacy-Policy-fr-FR-37cd6b2371ba806daaf8f90dd5175561?source=copy_link';
+const japanesePrivacyHref =
+  'https://app.notion.com/p/etialmoon/Privacy-Policy-ja-JP-37cd6b2371ba803598bcf828ec6a3737?source=copy_link';
+const portugueseBrazilPrivacyHref =
+  'https://app.notion.com/p/etialmoon/Privacy-Policy-pt-BR-37cd6b2371ba80cca542d214d6ac4393?source=copy_link';
+const chinesePrivacyHref =
+  'https://app.notion.com/p/etialmoon/Privacy-Policy-zh-CN-37cd6b2371ba80caa6b2ca8ca0b8cc72?source=copy_link';
+const appStoreHref =
+  'https://apps.apple.com/kr/app/pennymint/id6774895992?l=en-GB';
 
 export interface Metric {
   value: string;
@@ -40,7 +54,10 @@ export interface PageContent {
     eyebrow: string;
     title: string;
     description: string;
-    availability: string;
+    storeLabel: string;
+    storeHref: string;
+    storeBadgeSrc: string;
+    storeBadgeAlt: string;
     availabilityNote: string;
     highlights: string[];
     metrics: Metric[];
@@ -68,6 +85,7 @@ export interface LocaleInfo {
   label: string;
   screenshotPrefix: ScreenshotPrefix;
   privacyHref: string;
+  badgeLocale: string;
 }
 
 export const localeOrder: Locale[] = ['ko', 'en', 'ja', 'zh-cn', 'fr', 'es', 'de', 'pt-br'];
@@ -83,50 +101,62 @@ export const localeInfo: Record<Locale, LocaleInfo> = {
     label: '한국어',
     screenshotPrefix: 'kr',
     privacyHref: koreanPrivacyHref,
+    badgeLocale: 'ko-kr',
   },
   en: {
     htmlLang: 'en-US',
     label: 'English',
     screenshotPrefix: 'us',
     privacyHref: englishPrivacyHref,
+    badgeLocale: 'en-us',
   },
   ja: {
     htmlLang: 'ja-JP',
     label: '日本語',
     screenshotPrefix: 'jp',
-    privacyHref: englishPrivacyHref,
+    privacyHref: japanesePrivacyHref,
+    badgeLocale: 'ja-jp',
   },
   'zh-cn': {
     htmlLang: 'zh-CN',
     label: '简体中文',
     screenshotPrefix: 'cn',
-    privacyHref: englishPrivacyHref,
+    privacyHref: chinesePrivacyHref,
+    badgeLocale: 'zh-cn',
   },
   fr: {
     htmlLang: 'fr-FR',
     label: 'Français',
     screenshotPrefix: 'fr',
-    privacyHref: englishPrivacyHref,
+    privacyHref: frenchPrivacyHref,
+    badgeLocale: 'fr-fr',
   },
   es: {
     htmlLang: 'es-ES',
     label: 'Español',
     screenshotPrefix: 'es',
-    privacyHref: englishPrivacyHref,
+    privacyHref: spanishPrivacyHref,
+    badgeLocale: 'es-es',
   },
   de: {
     htmlLang: 'de-DE',
     label: 'Deutsch',
     screenshotPrefix: 'de',
-    privacyHref: englishPrivacyHref,
+    privacyHref: germanPrivacyHref,
+    badgeLocale: 'de-de',
   },
   'pt-br': {
     htmlLang: 'pt-BR',
     label: 'Português (Brasil)',
     screenshotPrefix: 'br',
-    privacyHref: englishPrivacyHref,
+    privacyHref: portugueseBrazilPrivacyHref,
+    badgeLocale: 'pt-br',
   },
 };
+
+function getAppStoreBadgeSrc(locale: Locale) {
+  return `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/${localeInfo[locale].badgeLocale}?releaseDate=1781568000`;
+}
 
 export function getLocaleHref(locale: Locale) {
   return locale === 'ko' ? '' : `${locale}/`;
@@ -172,8 +202,11 @@ export const pages: Record<Locale, PageContent> = {
       title: '작은 기록이, 좋은 소비를 만듭니다.',
       description:
         'Pennymint는 복잡한 자산 관리 도구가 아니라, 매일 빠르게 지출을 기록하고 다시 돌아보기 쉬운 개인용 가계부입니다.',
-      availability: 'App Store 출시 예정',
-      availabilityNote: '앱스토어 링크는 공개 준비가 끝나는 대로 이 페이지에 추가됩니다.',
+      storeLabel: 'App Store에서 보기',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('ko'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: '지금 App Store에서 Pennymint를 확인할 수 있습니다.',
       highlights: ['빠른 지출 기록', '2뎁스 카테고리', '월간 달력 검토', '카테고리 분석 차트'],
       metrics: [
         {
@@ -309,8 +342,11 @@ export const pages: Record<Locale, PageContent> = {
       title: 'Small records make better spending decisions.',
       description:
         'Pennymint is a personal expense tracker for people who want to log spending quickly and look back without dealing with heavyweight finance tools.',
-      availability: 'Coming Soon to the App Store',
-      availabilityNote: 'The App Store link will be added here before public release.',
+      storeLabel: 'View on the App Store',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('en'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: 'Pennymint is now available on the App Store.',
       highlights: ['Fast expense entry', 'Two-level categories', 'Monthly calendar review', 'Category analytics'],
       metrics: [
         {
@@ -446,8 +482,11 @@ export const pages: Record<Locale, PageContent> = {
       title: '小さな記録が、よりよい支出につながります。',
       description:
         'Pennymintは複雑な資産管理ツールではなく、毎日の支出をすばやく記録し、あとから気軽に見返せる個人向け家計簿アプリです。',
-      availability: 'App Storeで近日公開',
-      availabilityNote: 'App Storeリンクは公開準備が整い次第、このページに追加されます。',
+      storeLabel: 'App Storeで見る',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('ja'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: 'Pennymintは現在 App Store で確認できます。',
       highlights: ['すばやい記録', '2階層カテゴリ', '月間カレンダー確認', 'カテゴリ分析'],
       metrics: [
         {
@@ -582,8 +621,11 @@ export const pages: Record<Locale, PageContent> = {
       title: '小小记录，让每一笔支出更清楚。',
       description:
         'Pennymint 不是复杂的资产管理工具，而是一款帮助你快速记录日常支出、之后也能轻松回看的个人记账应用。',
-      availability: '即将登陆 App Store',
-      availabilityNote: 'App Store 链接将在发布准备完成后添加到此页面。',
+      storeLabel: '在 App Store 查看',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('zh-cn'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: '你现在可以在 App Store 中查看 Pennymint。',
       highlights: ['快速记账', '两级分类', '月度日历回顾', '分类图表分析'],
       metrics: [
         {
@@ -719,8 +761,11 @@ export const pages: Record<Locale, PageContent> = {
       title: 'Un suivi simple pour mieux dépenser.',
       description:
         'Pennymint n’est pas un outil financier complexe, mais une application personnelle pour enregistrer rapidement vos dépenses quotidiennes et les revoir facilement plus tard.',
-      availability: 'Bientôt sur l’App Store',
-      availabilityNote: 'Le lien App Store sera ajouté ici dès que la sortie sera prête.',
+      storeLabel: 'Voir sur l’App Store',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('fr'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: 'Pennymint est maintenant disponible sur l’App Store.',
       highlights: ['Saisie rapide', 'Catégories à deux niveaux', 'Revue mensuelle', 'Graphiques par catégorie'],
       metrics: [
         {
@@ -856,8 +901,11 @@ export const pages: Record<Locale, PageContent> = {
       title: 'Pequeños registros para gastar mejor cada día.',
       description:
         'Pennymint no es una herramienta financiera compleja. Es una app personal para anotar gastos diarios con rapidez y revisarlos con facilidad más tarde.',
-      availability: 'Próximamente en App Store',
-      availabilityNote: 'El enlace de App Store se añadirá a esta página cuando el lanzamiento esté listo.',
+      storeLabel: 'Ver en App Store',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('es'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: 'Pennymint ya se puede ver en App Store.',
       highlights: ['Registro rápido', 'Categorías en dos niveles', 'Revisión mensual', 'Gráficos por categoría'],
       metrics: [
         {
@@ -993,8 +1041,11 @@ export const pages: Record<Locale, PageContent> = {
       title: 'Kleine Einträge helfen dir, besser auszugeben.',
       description:
         'Pennymint ist kein komplexes Finanzwerkzeug, sondern eine persönliche App, mit der du Ausgaben im Alltag schnell festhältst und später leicht wieder ansiehst.',
-      availability: 'Bald im App Store',
-      availabilityNote: 'Der App Store-Link wird hier ergänzt, sobald die Veröffentlichung bereit ist.',
+      storeLabel: 'Im App Store ansehen',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('de'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: 'Pennymint ist jetzt im App Store verfügbar.',
       highlights: ['Schnelle Erfassung', 'Kategorien auf zwei Ebenen', 'Monatsrückblick', 'Kategorie-Diagramme'],
       metrics: [
         {
@@ -1130,8 +1181,11 @@ export const pages: Record<Locale, PageContent> = {
       title: 'Pequenos registros ajudam você a entender melhor seus gastos.',
       description:
         'Pennymint não é uma ferramenta financeira pesada. É um app pessoal para registrar gastos do dia a dia com rapidez e revisar tudo depois com facilidade.',
-      availability: 'Em breve na App Store',
-      availabilityNote: 'O link da App Store será adicionado a esta página assim que o lançamento estiver pronto.',
+      storeLabel: 'Ver na App Store',
+      storeHref: appStoreHref,
+      storeBadgeSrc: getAppStoreBadgeSrc('pt-br'),
+      storeBadgeAlt: 'Download on the App Store',
+      availabilityNote: 'Pennymint já está disponível na App Store.',
       highlights: ['Registro rápido', 'Categorias em dois níveis', 'Revisão mensal', 'Gráficos por categoria'],
       metrics: [
         {

@@ -39,7 +39,7 @@ const footerLinks = [
   ]}
   localeOptions={getLocaleOptions(locale)}
   footerLinks={footerLinks}
-  footerNote={`${page.footer.availability} ${page.footer.support}`}
+  footerSupport={page.footer.support}
 >
   <section class="hero-section">
     <div class="hero-copy">
@@ -48,10 +48,16 @@ const footerLinks = [
       <p class="hero-copy__description">{page.hero.description}</p>
 
       <div class="hero-copy__actions">
-        <span class="availability-pill">{page.hero.availability}</span>
+        <a
+          class="app-store-badge"
+          href={page.hero.storeHref}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={page.hero.storeLabel}
+        >
+          <img src={page.hero.storeBadgeSrc} alt={page.hero.storeBadgeAlt} loading="eager" decoding="async" />
+        </a>
       </div>
-
-      <p class="hero-copy__note">{page.hero.availabilityNote}</p>
 
       <ul class="highlight-list">
         {page.hero.highlights.map((highlight) => <li>{highlight}</li>)}
